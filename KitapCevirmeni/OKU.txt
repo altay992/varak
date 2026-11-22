@@ -1,0 +1,25 @@
+VARAK · MASAÜSTÜ 5.0
+
+Windows: ZIP’i yazılabilir bir klasöre çıkarın. Python 3.9+ gerekir. İlk kurulum için Node.js LTS ve npm (nodejs.org) gerekir. Baslat.bat dosyasını açın. İlk açılışta npm kilitli Electron sürümünü indirir; internet bağlantısını ve kurulum penceresini açık tutun. Sonraki açılışlarda Varak.pyw dosyasını da kullanabilirsiniz. Varak ayrı masaüstü penceresinde açılır. Önceki sürümden geçerken Kitap Çıktısı ve ayarlar.json dosyalarını aynı klasörde bırakın.
+macOS/Linux: Python 3.9+ ve Node.js/npm kurulu bir sistemde python3 desktop_start.py komutunu çalıştırın.
+
+Ayarlar’dan kaynak ve hedef dili seçin. İlk açılışta İngilizce → Türkçe seçilidir. Dil çifti, model, üslup veya karakter sınırı değiştiğinde ayrı bir çeviri sürümü açılır. Eski çeviriye dönmek için aynı ayarları seçin. 2.0 kayıtları için uygulamayı önce duraklatıp kapatın. Yeni program dosyalarını eski KitapCevirmeni klasörüne çıkarın veya eski Kitap Çıktısı klasörünü ve ayarlar.json dosyasını yenisine kopyalayın.
+
+Dosya seçildiğinde gerçek parça sayısı ve kullanılabilir kayıtlar hesaplanır. İlk süre tahmini, çevrilecek her parça için 20 saniye varsayar. İlk API isteğinden sonra tahmin gerçek istek sürelerinin ortalamasına göre yenilenir. Word dosyası yazma süresi ve bağlantı hızındaki değişimler bitiş saatini etkileyebilir. Bitiş saati bilgisayarın yerel saatidir.
+
+Kontrol Paneli’nde Kitap Seç’i kullanın. Ayarlar’da API anahtarınızı yazın ve Başlat / Devam et düğmesine basın. Her tamamlanan parça yedeklenir ve Canlı okuma bölümüne eklenir. Dil listesinden kaynak metni veya çeviriyi okuyabilirsiniz. Son parçayı izle seçimini kapatarak önceki parçalarda kalabilirsiniz.
+
+Word belgesi, uygulamanın kendi Kitap Çıktısı klasöründe kitap ve ayar sürümüne göre saklanır. Varsayılan olarak ilk parçadan başlayarak her parçada güncellenir. Çevrilmemiş metin kaynak dilinde kalır. Word’de aç düğmesi güncel belgenin bir okuma kopyasını açar. Sonraki değişiklikleri görmek için düğmeye tekrar basın. Sürekli güncellenen metin için uygulamadaki canlı okumayı kullanın. Okuma kopyaları çıktı klasöründeki “Okuma kopyaları” içinde tutulur.
+
+Ayarlar bölümünde OpenAI modeli, karakter sınırı, çeviri üslubu, geçici bağlantı hatalarında deneme sayısı ve Word yazma sıklığı seçilebilir. Varsayılanlar gpt-5-nano, 4500 karakter, Doğal, 3 deneme ve her parçada Word çıktısıdır. Model, üslup veya parça boyutu değişince ayrı bir çeviri sürümü açılır. Önceki ayarlarla önceki kayıt devam eder. Ayarları yeni işleme başlamadan önce kaydedin.
+
+1.x sürümünden geçerken eski kitap ve yanındaki yedek klasörünü birlikte bırakın. Orijinal kitabı seçin ve varsayılan model, üslup ve parça boyutunu kullanın. Uygulama eski doğrulanmış kayıtları yeni klasöre alır. İsterseniz eski yedek klasöründeki Orijinal.docx dosyasını da seçebilirsiniz. Mevcut 2.x çalışmasını taşımak için Kitap Çıktısı klasörünü yeni uygulamanın içine kopyalayın ve aynı kaynak dosyayı seçin.
+
+Word başlıkları, tablolar, yazı biçimleri ve resimler çıktı belgesinde korunur. Canlı okuyucu metin gösterir. Türkçe metnin uzunluğu satır ve sayfa sonlarını değiştirebilir. Resim içindeki yazılar ve gömülü dosyalar çevrilmez.
+
+
+5.0: Ayarlar > Sistem promptu bölümünden çeviri talimatını düzenleyip Kaydet'e basın. {source} ve {target} dil adlarıyla değiştirilir. Varsayılanı yükle düğmesi düzenleyicideki metni geri getirir. Farklı prompt ile çevrilen kısımlar ayrı sürümde saklanır.
+
+Arapça → Türkçe seçildiğinde uygulama Arapça cümlelerin Türkçe anlamını ister. Önceki sürümlerde üretilen okunuşlar yeni çevirinin yedeği olarak kullanılmaz. Eski Word belgeleri Çıktı dosyaları sekmesinden açılabilir.
+
+Kitap geçmişi, uygulama içindeki Kitap Çıktısı klasörünü tarar. Bir kitaba çift tıklayarak çıktıları filtreleyin. Çıktı dosyaları sekmesinde sürüm, dosya türü, boyut ve tarih gösterilir. Seçilen belgenin ilk 20.000 karakteri metin olarak önizlenir. Tam belge ve görseller için Word’de aç düğmesini kullanın. Yeni sürümü farklı klasöre çıkardıysanız eski Kitap Çıktısı klasörünü buraya kopyalayın.
