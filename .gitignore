@@ -1,0 +1,9 @@
+node_modules/
+release/
+__pycache__/
+*.log
+.DS_Store
+# Çalışırken oluşan kullanıcı verileri
+KitapCevirmeni/Kitap Çıktısı/
+KitapCevirmeni/Yüklenen kitaplar/
+KitapCevirmeni/ayarlar.json
