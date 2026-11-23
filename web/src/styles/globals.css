@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource/geist-mono/400.css';
+@import 'tw-animate-css';
+
+/* Nöbet: sakin, yoğun, durumunu söyleyen arayüz. Koyu tema varsayılan, açık tema eşi.
+   Bu dosyada yalnızca renk belirteçleri, Tailwind teması ve temel kurallar var.
+   Bileşenlerin görünümü kendi dosyalarında Tailwind sınıflarıyla yazılır. */
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root, [data-theme='light'] {
+  color-scheme: light;
+  --background: #f7f7f7;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --muted: #f4f4f4;
+  --secondary: #ededed;
+  --border: #ebebeb;
+  --input: #e2e2e2;
+  --ring: rgba(37, 99, 235, .45);
+  --primary: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --info: #2563eb;
+  --info-tint: #eef3fe;
+  --text: #111111;
+  --text-2: #6b6b6b;
+  --text-3: #a0a0a0;
+  --status-running: #15803d; --status-running-tint: #ecf7ef;
+  --status-waiting: #d9590b; --status-waiting-tint: #fdf1e8;
+  --status-error: #dc2626; --status-error-tint: #fdecec;
+  --status-idle: #a0a0a0;
+  --seg-kept: #b8b8b8;
+  --seg-done: #1a1a1a;
+  --seg-todo: #eaeaea;
+  --paper: #ffffff;
+  --paper-well: #f4f4f4;
+  --avatar: radial-gradient(120% 120% at 30% 20%, #fbe7b0 0%, #e2b65a 45%, #a8742a 100%);
+  --word: #2b579a;
+  --shadow-float: 0 8px 24px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06), 0 0 0 .5px rgba(0,0,0,.08);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #161616;
+  --card: #1c1c1c;
+  --popover: #242424;
+  --muted: #242424;
+  --secondary: #2a2a2a;
+  --border: rgba(255,255,255,.08);
+  --input: rgba(255,255,255,.12);
+  --ring: rgba(110,160,255,.5);
+  --primary: #ededed;
+  --primary-foreground: #161616;
+  --info: #6ea0ff;
+  --info-tint: #16243f;
+  --text: #ededed;
+  --text-2: #a1a1a1;
+  --text-3: #6b6b6b;
+  --status-running: #4ade80; --status-running-tint: #15291c;
+  --status-waiting: #fb923c; --status-waiting-tint: #33200f;
+  --status-error: #f87171; --status-error-tint: #3a1a1a;
+  --status-idle: #6b6b6b;
+  --seg-kept: #5a5a5a;
+  --seg-done: #ededed;
+  --seg-todo: #2c2c2c;
+  --paper: #242424;
+  --paper-well: #161616;
+  --avatar: radial-gradient(120% 120% at 30% 20%, #fbe7b0 0%, #d9aa4e 45%, #8c5f21 100%);
+  --word: #5b8bd9;
+  --shadow-float: 0 12px 32px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.4), 0 0 0 .5px rgba(255,255,255,.06);
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Nöbet adları */
+  --color-bg: var(--background);
+  --color-line: var(--border);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-info: var(--info);
+  --color-ok: var(--status-running);
+  --color-wait: var(--status-waiting);
+  --color-bad: var(--status-error);
+
+  /* shadcn/ui adları, aynı belirteçlere bağlı */
+  --color-background: var(--background);
+  --color-foreground: var(--text);
+  --color-card: var(--card);
+  --color-card-foreground: var(--text);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--text);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--text);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--text-3);
+  --color-accent: var(--secondary);
+  --color-accent-foreground: var(--text);
+  --color-destructive: var(--status-error);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-info-tint: var(--info-tint);
+  --color-ok-tint: var(--status-running-tint);
+  --color-wait-tint: var(--status-waiting-tint);
+  --color-bad-tint: var(--status-error-tint);
+  --color-idle: var(--status-idle);
+  --color-seg-kept: var(--seg-kept);
+  --color-seg-done: var(--seg-done);
+  --color-seg-todo: var(--seg-todo);
+  --color-paper: var(--paper);
+  --color-paper-well: var(--paper-well);
+  --color-word: var(--word);
+
+  --shadow-float: var(--shadow-float);
+  --ease-nobet: cubic-bezier(.23, 1, .32, 1);
+
+  --animate-rise: rise 320ms var(--ease-nobet);
+  --animate-blink: blink 1.6s ease-in-out infinite;
+  --animate-ring: ring 2.4s var(--ease-nobet) infinite;
+  --animate-pop: pop 140ms var(--ease-nobet);
+
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+  @keyframes blink { 50% { opacity: .25; } }
+  @keyframes ring {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--status-running) 45%, transparent); }
+    70%, 100% { box-shadow: 0 0 0 5px transparent; }
+  }
+  @keyframes pop { from { opacity: 0; transform: scale(.97) translateY(-4px); } }
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-md: var(--shadow-float);
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  html {
+    background: var(--background);
+    /* macOS'ta tarayıcılar varsayılan olarak alt piksel yumuşatma kullanır; açık metin koyu zeminde kalın görünür. */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overscroll-behavior: none;
+  }
+  body {
+    background: var(--background);
+    color: var(--text);
+    font: 400 14px/22px var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    user-select: none;
+  }
+  input, select, textarea, button {
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+  }
+  article, textarea, input { user-select: text; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+  /* Metin alanları odağı kendi kenarlığıyla gösterir. */
+  input:focus-visible, textarea:focus-visible { outline: none; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
